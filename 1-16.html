@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(s){  
+                //let set = [...new Set(s)];//set객체를 스프레드해서 배열로.
+                //let answer = set.join('');//배열을 하나의 문자열로 join.
+                
+                //let answer = '';
+
+                //for(let i = 0; i < s.length; i++) {
+                    //if(s.indexOf(s[i])===i) answer += s[i];
+                //}
+
+                let answer = 0;
+                let pos = s.indexOf('k'); //'k'의 가장 첫번째 위치
+                while (pos !== -1){ 
+                    //'k'를 못찾으면 -1.'k'를 찾으면 참이되므로, 찾기만 하면 반복된다.
+                    //'k'는 문자열에 있어서 찾을 수 있으니까 계속 참이고, 다 찾아내면 반복이 끝난다.
+                    answer++;
+                    pos=s.indexOf('k',pos+1); 
+                    //pos를 현재 pos값의 직후로 업데이트 해준다.
+                }
+
+                return answer;
+            }
+            console.log(solution("ksekkset"));
+        </script>
+    </body>
+</html>

@@ -7,28 +7,6 @@
     <title>Document</title>
 </head>
 <body>
-    <script>
-        
-        function solution(answers) {
-            var answer = [];
-            let supo1 = [1, 2, 3, 4, 5];
-            let supo2 = [ 2, 1, 2, 3, 2, 4, 2, 5];
-            let supo3 = [3, 3, 1, 1, 2, 2, 4, 4, 5, 5];
-            
-            let points = [0,0,0];
-            
-            for(let i = 0; i<answer.length; i++){
-                if(answer[i]===supo1[i]) points[0]++;
-                if(answer[i]===supo2[i]) points[1]++;
-                if(answer[i]===supo3[i]) points[2]++;
-            }
-            answer = Math.max(points)
-            return answer;
-        }
-
-        let answers = [1,2,3,4,5];
-        console.log(solution(answers));
-
-    </script>
+    
 </body>
 </html>

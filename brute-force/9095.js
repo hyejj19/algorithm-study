@@ -1,3 +1,6 @@
+//백준 9095 
+//1,2,3 더하기
+
 /* input
 3
 4
@@ -22,10 +25,33 @@ for(let i = 1; i<=testCaseNum;i++) {
     newArr.push(arr[i]);
 }
 
-function solution(t,numbers){
-    for(let i =0; i<testCaseNum; i++){
-        
+////////************////////
+let result = '';
+
+function DFS(n,sum) {
+    let cnt = 0; 
+    //sum이 n을 초과하는 경우 정답이 아니므로 0을 반환.
+
+    if(sum > n) return 0; 
+    //sum 이 n이 되면 정답이 되므로 1을 반환.
+    
+    if(sum===n){
+        return 1;
     }
+
+    //재귀로 반환 받는 숫자만큼 cnt에 누적하며 재귀호출
+    else{
+        for(let i = 1; i <= 3; i++){
+            cnt += DFS(n,sum+i);
+        }
+    }
+    return cnt;
 }
 
-solution(testCaseNum,newArr);
+for( let i = 0; i < testCaseNum; i++){
+    let n = newArr[i];
+    result += `${DFS(n,0)}\n`;
+}
+
+//제출
+console.log(result);

@@ -5,8 +5,14 @@
 10
 */
 
+// 백준 제출용
+//const readFileSyncAddress = '/dev/stdin';
+
+// VSC 테스트용
+const readFileSyncAddress = 'input.txt';
+
 let fs = require('fs');
-let input = fs.readFileSync('./input.txt').toString().split('\n');
+let input = fs.readFileSync(readFileSyncAddress).toString().split('\n');
 let newArr = [];
 
 const testCaseNum = +input[0];

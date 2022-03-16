@@ -10,16 +10,19 @@
     <script>
 
         function solve(n){
-            if(n<=1){
+            if(n<=0){
                 return 1;
             }
             else{
-                return solve(n-1) + solve(n-2);
+                for(let i = 1; i <= n; i++){
+                    return solve(i) 
+                }
             }
         }
         
         let n = 10;
         console.log(solve(n));
+        
     </script>
 </body>
 </html>

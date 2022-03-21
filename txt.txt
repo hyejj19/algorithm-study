@@ -1,0 +1,40 @@
+1
+1
+0
+1
+0
+1
+0
+1
+0
+0 *
+0 *
+1 *
+0
+1 *
+0 *
+1 *
+
+function bitOperator(cmd,n){
+    switch(cmd){
+        case 'check' :
+            if(S&(1<<n)) answer += `1\n`;
+            else answer += `0\n`;
+            break;
+        case 'add' :
+            S |= (1<<n);
+            break;
+        case 'remove' :
+            S &= ~(1<<n);
+            break;
+        case 'toggle' :
+            S ^= (1<<n);
+            break;
+        case 'all' :
+            S = ((1<<20)-1);
+            break;
+        case 'empty' :
+            S = 0;
+            break;
+    }
+}

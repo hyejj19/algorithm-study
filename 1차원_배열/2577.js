@@ -1,10 +1,7 @@
 /*input
-1 1
-2 3
-3 4
-9 8
-5 2
-0 0
+150
+266
+427
 */
 
 // 백준 제출용
@@ -14,7 +11,11 @@
 const readFileSyncAddress = 'input.txt';
 
 const fs = require('fs');
-let [a, b, c] = fs.readFileSync(readFileSyncAddress).toString().trim().split(/\n/g).map(Number);
+let input = fs.readFileSync(readFileSyncAddress).toString().trim().split(/\n/g).map(Number)
 
-const [...nums] = (a*b*c).toString().split('').map(Number);
+const nums =input.reduce((a,c) => a*c).toString().split('').map(Number);
 
+for(let i = 0; i < 10; i++){
+    let arr = nums.filter((e)=> e === i);
+    console.log(arr.length);
+}

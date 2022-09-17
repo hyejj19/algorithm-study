@@ -17,7 +17,7 @@ A(2), a(1), b(1), C(1), e(2)로 알파벳과 그 개수가 모두 일치합니�
 두 문자열이 아나그램이면 'YES' 아니면 'NO' 를 출력한다.
 */
 
-const str1 = 'abaCC';
+const str1 = 'abaCa';
 const str2 = 'Caaab';
 
 // 해쉬맵 생성 함수
@@ -53,3 +53,29 @@ function solution1(str1, str2) {
 
 const result1 = solution1(str1, str2);
 console.log(result1);
+
+// 해답 코드
+function solution2(str1, str2) {
+  let answer = 'YES';
+  let hash = new Map();
+
+  // str 1 에 대하여 각 문자열을 키로, 갯수를 값으로 하는 map 객체를 생성한다.
+  for (let x of str1) {
+    if (hash.has(x)) hash.set(x, hash.get(x) + 1);
+    else hash.set(x, 1);
+  }
+
+  // 문자열 str2를 반복하면서,
+  // 1. str1에 대한 해쉬 맵에 키가 존재하지 않거나(문자열이 일치하지 않음)
+  // 2. 조회한 값이 0이면 (갯수가 같지 않음) No를 리턴하고 종료한다.
+  // 3. 리턴이 되지 않은 경우 일치하는 문자열이 존재하므로, 맵에서 해당 문자열에 대한 값을 -1 한 뒤에 반복을 진행.
+  for (let x of str2) {
+    if (!hash.has(x) || hash.get(x) === 0) return 'NO';
+    hash.set(x, hash.get(x) - 1);
+  }
+
+  return answer;
+}
+
+const result2 = solution2(str1, str2);
+console.log(result2);
